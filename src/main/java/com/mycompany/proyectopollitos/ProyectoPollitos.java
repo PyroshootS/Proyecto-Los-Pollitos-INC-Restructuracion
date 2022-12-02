@@ -19,7 +19,13 @@ public class ProyectoPollitos {
         ListaProducto listaproductos = new ListaProducto(Cantidad);
 
         while (opcMenu != 5) {
-            opcMenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu Principal \nDigite el número de la opción que desea\n 1. Registro \n 2. Ingresar Mercadería \n 3. Editar Precio \n 4. Ver Inventario \n 5. Salir"));
+             antiFall = JOptionPane.showInputDialog(null, "Menu Principal \nDigite el número de la opción que desea\n 1. Registro \n 2. Ingresar Mercadería \n 3. Editar Precio \n 4. Ver Inventario \n 5. Salir");
+             if(Numerico(antiFall)){
+               opcMenu = Integer.parseInt(antiFall);
+             }else{
+               JOptionPane.showMessageDialog(null, "ERROR");
+                }
+            
             if (opcMenu == 5) {
                 break;
             }
@@ -33,7 +39,7 @@ public class ProyectoPollitos {
                         if(Numerico(antiFall)){
                             Rmenu = Integer.parseInt(antiFall);
                         }else{
-                            JOptionPane.showMessageDialog(null, "ERROR, por favor digite un valor numerico");
+                            JOptionPane.showMessageDialog(null, "ERROR");
                         }
                          
                         if (Rmenu == 4) {
@@ -98,7 +104,13 @@ public class ProyectoPollitos {
                 case 3:
                     int EPmenu = 0;
                     while (EPmenu != 2) {
-                        EPmenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu Editar Precio \nDigite el número de la opción que desea \n 1. Editar Precio \n 2. Volver al menu"));
+                        antiFall = JOptionPane.showInputDialog(null, "Menu Editar Precio \nDigite el número de la opción que desea \n 1. Editar Precio \n 2. Volver al menu");
+                        if(Numerico(antiFall)){
+                            EPmenu = Integer.parseInt(antiFall);
+                        }else{
+                            JOptionPane.showMessageDialog(null, "ERROR");
+                        }
+                        
                         if (EPmenu == 2) {
                             break;
                         }
@@ -124,7 +136,13 @@ public class ProyectoPollitos {
                 case 4:
                     int VImenu = 0;
                     while (VImenu != 2) {
-                        VImenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu Ver Inventario \nDigite el número de la opción que desea \n 1. Ver Inventario Completo \n 2. Volver al menu"));
+                        antiFall = JOptionPane.showInputDialog(null, "Menu Ver Inventario \nDigite el número de la opción que desea \n 1. Ver Inventario Completo \n 2. Volver al menu");
+                        if(Numerico(antiFall)){
+                            VImenu = Integer.parseInt(antiFall);
+                        }else{
+                            JOptionPane.showMessageDialog(null, "ERROR");
+                        }
+                        
                         if (VImenu == 2) {
                             break;
                         }
