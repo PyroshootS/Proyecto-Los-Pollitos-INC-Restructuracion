@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class ProyectoPollitos {
 
     public static void main(String[] args) {
-        JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de bodegas de  Los Pollitos INC");
+        JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de bodegas de  Los Pollitos INC.");
         //Variables MenuPrincipal
         int opcMenu = 0;
 
