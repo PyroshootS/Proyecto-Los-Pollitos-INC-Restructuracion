@@ -63,6 +63,14 @@ public class ProyectoPollitos {
                                     JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  no existe");       
                                 } else {
                                     JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  existe  " + listaproductos.getProductos()[posicion].toString());
+                                    String antiFall= JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia ");
+                                    boolean check = false;
+                                    Numerico(antiFall);
+                                    if(check == true){
+                                        System.out.println("funciona");
+                                    }else{
+                                        System.out.println("srry");
+                                    }
                                     int CantidadIngresar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia "));                                 //Evitar Colapso al no poner un INT
                                     int Contador = listaproductos.getProductos()[posicion].getCantidad() + CantidadIngresar;
                                     listaproductos.getProductos()[posicion].setCantidad(Contador);
@@ -256,5 +264,17 @@ public class ProyectoPollitos {
         }
         return ListadProductos;
     }
+    //evitar caidas por String en int
+    public static boolean Numerico(String antiFall){
+        boolean check = false;
+	try {
+		Integer.parseInt(antiFall);
+                check = true;
+		return check;
+	} catch (NumberFormatException nfe){
+                check = false; 
+		return check;
+	}
+}
 
 }

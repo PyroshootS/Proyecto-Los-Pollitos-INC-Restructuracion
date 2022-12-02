@@ -9,7 +9,7 @@ public class Categorias {
 
     }
 
-    public Categorias(int idCategoria, String categorias) {
+    public Categorias(int idCategoria, String categoria) {
         this.idCategoria = idCategoria;
         this.categoria = categoria;
     }
