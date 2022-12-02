@@ -8,6 +8,8 @@ public class ProyectoPollitos {
         JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de bodegas de  Los Pollitos INC");
         //Variables MenuPrincipal
         int opcMenu = 0;
+        //Anti 
+        String antiFall="";
 
         
         //Variables de las Listas
@@ -27,7 +29,13 @@ public class ProyectoPollitos {
                 case 1:
                     int Rmenu = 0;
                     while (Rmenu != 4) {
-                        Rmenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu de Registro \nDigite el número de la opción que desea seleccionar en el menu de Registro \n 1. Registrar Marca \n 2. Registrar Categoria  \n 3. Registrar nuevo producto \n 4. Volver al menu"));
+                        antiFall = JOptionPane.showInputDialog(null, "Menu de Registro \nDigite el número de la opción que desea seleccionar en el menu de Registro \n 1. Registrar Marca \n 2. Registrar Categoria  \n 3. Registrar nuevo producto \n 4. Volver al menu");
+                        if(Numerico(antiFall)){
+                            Rmenu = Integer.parseInt(antiFall);
+                        }else{
+                            JOptionPane.showMessageDialog(null, "ERROR, por favor digite un valor numerico");
+                        }
+                         
                         if (Rmenu == 4) {
                             break;
                         }
@@ -51,7 +59,12 @@ public class ProyectoPollitos {
                 case 2:
                     int IMmenu = 0;
                     while (IMmenu != 2) {
-                        IMmenu = Integer.parseInt(JOptionPane.showInputDialog(null, "Menu Ingresar Mercaderia \nDigite el número de la opción que desea en el menu de Ingresar Mercaderia \n 1. Ingresar Mercaderia \n 2. Volver al menu"));
+                        antiFall = JOptionPane.showInputDialog(null, "Menu Ingresar Mercaderia \nDigite el número de la opción que desea en el menu de Ingresar Mercaderia \n 1. Ingresar Mercaderia \n 2. Volver al menu");
+                        if(Numerico(antiFall)){
+                            IMmenu = Integer.parseInt(antiFall);
+                        }else{
+                            JOptionPane.showMessageDialog(null, "ERROR, por favor digite un valor numerico");
+                        }
                         if (IMmenu == 2) {
                             break;
                         }
@@ -63,18 +76,16 @@ public class ProyectoPollitos {
                                     JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  no existe");       
                                 } else {
                                     JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  existe  " + listaproductos.getProductos()[posicion].toString());
-                                    String antiFall= JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia ");
-                                    boolean check = false;
-                                    Numerico(antiFall);
-                                    if(check == true){
-                                        System.out.println("funciona");
+                                    antiFall= JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia ");
+                                    if(Numerico(antiFall)){
+                                        int CantidadIngresar = Integer.parseInt(antiFall);
+                                        int Contador = listaproductos.getProductos()[posicion].getCantidad() + CantidadIngresar;
+                                        listaproductos.getProductos()[posicion].setCantidad(Contador);
+                                        JOptionPane.showMessageDialog(null, "El producto con la mercaderia ingresada  con exito es: \n" + listaproductos.getProductos()[posicion].toString());
                                     }else{
-                                        System.out.println("srry");
+                                        JOptionPane.showMessageDialog(null, "ERROR, Se requiere que ingrese un valor numerico, vuelva a intentarlo");
                                     }
-                                    int CantidadIngresar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia "));                                 //Evitar Colapso al no poner un INT
-                                    int Contador = listaproductos.getProductos()[posicion].getCantidad() + CantidadIngresar;
-                                    listaproductos.getProductos()[posicion].setCantidad(Contador);
-                                    JOptionPane.showMessageDialog(null, "El producto con la mercaderia ingresada  con exito es: \n" + listaproductos.getProductos()[posicion].toString());
+                                                                                                     
                                 }
                                 break;
 
@@ -266,14 +277,14 @@ public class ProyectoPollitos {
     }
     //evitar caidas por String en int
     public static boolean Numerico(String antiFall){
-        boolean check = false;
+       
 	try {
 		Integer.parseInt(antiFall);
-                check = true;
-		return check;
+                
+		return true;
 	} catch (NumberFormatException nfe){
-                check = false; 
-		return check;
+                
+		return false;
 	}
 }
 
