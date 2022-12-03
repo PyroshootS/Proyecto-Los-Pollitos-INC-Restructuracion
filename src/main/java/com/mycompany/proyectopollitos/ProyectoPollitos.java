@@ -83,7 +83,7 @@ public class ProyectoPollitos {
                                 if (posicion > listaproductos.getProductos().length) {
                                     JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  no existe");
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  si existe  " + listaproductos.getProductos()[posicion].toString());
+                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  si existe \n" + listaproductos.getProductos()[posicion].toString());
                                     antiFall = JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia ");
                                     if (Numerico(antiFall)) {
                                         int CantidadIngresar = Integer.parseInt(antiFall);
