@@ -29,4 +29,10 @@ public class Marcas {
     public void SETMarca(String Marca) {
         this.Marca = Marca;
     }
+
+    @Override
+    public String toString() {
+        return "Marcas{" + "idMarca=" + idMarca + ", Marca=" + Marca + '}';
+    }
+    
 }

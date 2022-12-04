@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class ProyectoPollitos {
 
     public static void main(String[] args) {
-        JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de bodegas de  Los Pollitos INC");
+        JOptionPane.showMessageDialog(null, "Bienvenido al Sistema de Bodegas de  Los Pollitos INC");
         //Variables MenuPrincipal
         int opcMenu = 0;
         //Anti 
@@ -18,11 +18,11 @@ public class ProyectoPollitos {
         ListaProducto listaproductos = new ListaProducto(Cantidad);
 
         while (opcMenu != 5) {
-            antiFall = JOptionPane.showInputDialog(null, "Menu Principal \nDigite el número de la opción que desea\n 1. Registro \n 2. Ingresar Mercadería \n 3. Editar Precio \n 4. Ver Inventario \n 5. Salir");
+            antiFall = JOptionPane.showInputDialog(null, "Menú Principal \nDigite el número de la opción que desea\n 1. Registro \n 2. Ingresar Mercadería \n 3. Editar Precio \n 4. Ver Inventario \n 5. Salir");
             if (Numerico(antiFall)) {
                 opcMenu = Integer.parseInt(antiFall);
             } else {
-                JOptionPane.showMessageDialog(null, "ERROR");
+                JOptionPane.showMessageDialog(null, "ERROR, porfavor ingrese un valor numérico");
             }
 
             if (opcMenu == 5) {
@@ -34,11 +34,11 @@ public class ProyectoPollitos {
                 case 1:
                     int Rmenu = 0;
                     while (Rmenu != 4) {
-                        antiFall = JOptionPane.showInputDialog(null, "Menu de Registro \nDigite el número de la opción que desea seleccionar en el menu de Registro \n 1. Registrar Marca \n 2. Registrar Categoria  \n 3. Registrar nuevo producto \n 4. Volver al menu");
+                        antiFall = JOptionPane.showInputDialog(null, "Menú de Registro \nDigite el número de la opción que desea seleccionar en el menú de Registro \n 1. Registrar Marca \n 2. Registrar Categoría  \n 3. Registrar nuevo producto \n 4. Volver al menu");
                         if (Numerico(antiFall)) {
                             Rmenu = Integer.parseInt(antiFall);
                         } else {
-                            JOptionPane.showMessageDialog(null, "ERROR");
+                            JOptionPane.showMessageDialog(null, "ERROR, porfavor ingrese un valor numérico");
                         }
 
                         if (Rmenu == 4) {
@@ -55,7 +55,7 @@ public class ProyectoPollitos {
                                 listaproductos.setProductos(RegistrarProductos(listaproductos.getProductos(), listamarcas.getMarcas(), listacategoria.getCategorias(), antiFall));
                                 break;
                             default:
-                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                JOptionPane.showMessageDialog(null, "Opción no valida");
                         }
                     }
                     break;
@@ -64,11 +64,11 @@ public class ProyectoPollitos {
                 case 2:
                     int IMmenu = 0;
                     while (IMmenu != 2) {
-                        antiFall = JOptionPane.showInputDialog(null, "Menu Ingresar Mercaderia \nDigite el número de la opción que desea en el menu de Ingresar Mercaderia \n 1. Ingresar Mercaderia \n 2. Volver al menu");
+                        antiFall = JOptionPane.showInputDialog(null, "Menú Ingresar Mercadería \nDigite el número de la opción que desea en el menú de Ingresar Mercadería \n 1. Ingresar Mercadería \n 2. Volver al menú");
                         if (Numerico(antiFall)) {
                             IMmenu = Integer.parseInt(antiFall);
                         } else {
-                            JOptionPane.showMessageDialog(null, "ERROR");
+                            JOptionPane.showMessageDialog(null, "ERROR, porfavor ingrese un valor numérico");
                         }
                         if (IMmenu == 2) {
                             break;
@@ -78,27 +78,27 @@ public class ProyectoPollitos {
                                 String ListadMarcas = MostrarListaMarcas(listamarcas.getMarcas());
                                 String ListadCategorias = MostrarListaCategorias(listacategoria.getCategorias());
                                 String ListadProductos = MostrarListaProductos(listaproductos.getProductos());
-                                String NombreProducto = JOptionPane.showInputDialog("Lista de Marcas: \n" + ListadMarcas + "\n \nLista de Categorias:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos + "\n \nDigite el nombre del producto al que le quiere agregar ");
+                                String NombreProducto = JOptionPane.showInputDialog("Lista de Marcas: \n" + ListadMarcas + "\n \nLista de Categorías:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos + "\n \nDigite el nombre del producto al que le quiere agregar ");
                                 int posicion = (BuscarNombreProducto(NombreProducto, listaproductos.getProductos()));
                                 if (posicion > listaproductos.getProductos().length) {
-                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  no existe");
+                                    JOptionPane.showMessageDialog(null, "El producto con el nombre "+NombreProducto+" no existe");
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  si existe \n" + listaproductos.getProductos()[posicion].toString());
-                                    antiFall = JOptionPane.showInputDialog(null, "Digite la cantidad de mercaderia ");
+                                    JOptionPane.showMessageDialog(null, "El producto con el nombre "+NombreProducto+" si existe \n" + listaproductos.getProductos()[posicion].toString());
+                                    antiFall = JOptionPane.showInputDialog(null, "Digite la cantidad de mercadería que quiere ingresar ");
                                     if (Numerico(antiFall)) {
                                         int CantidadIngresar = Integer.parseInt(antiFall);
                                         int Contador = listaproductos.getProductos()[posicion].getCantidad() + CantidadIngresar;
                                         listaproductos.getProductos()[posicion].setCantidad(Contador);
-                                        JOptionPane.showMessageDialog(null, "El producto con la mercaderia ingresada  con exito es: \n" + listaproductos.getProductos()[posicion].toString());
+                                        JOptionPane.showMessageDialog(null, "El producto con la mercadería ingresada con exito es: \n" + listaproductos.getProductos()[posicion].toString());
                                     } else {
-                                        JOptionPane.showMessageDialog(null, "ERROR, Se requiere que ingrese un valor numerico, vuelva a intentarlo");
+                                        JOptionPane.showMessageDialog(null, "ERROR, Se requiere que ingrese un valor numérico, vuelva a intentarlo");
                                     }
 
                                 }
                                 break;
 
                             default:
-                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                JOptionPane.showMessageDialog(null, "Opción no valida");
                         }
                     }
                     break;
@@ -106,11 +106,11 @@ public class ProyectoPollitos {
                 case 3:
                     int EPmenu = 0;
                     while (EPmenu != 2) {
-                        antiFall = JOptionPane.showInputDialog(null, "Menu Editar Precio \nDigite el número de la opción que desea \n 1. Editar Precio \n 2. Volver al menu");
+                        antiFall = JOptionPane.showInputDialog(null, "Menú Editar Precio \nDigite el número de la opción que desea \n 1. Editar Precio \n 2. Volver al menú");
                         if (Numerico(antiFall)) {
                             EPmenu = Integer.parseInt(antiFall);
                         } else {
-                            JOptionPane.showMessageDialog(null, "ERROR, porfavor ingrese un valor numero");
+                            JOptionPane.showMessageDialog(null, "ERROR, porfavor ingrese un valor número");
                         }
 
                         if (EPmenu == 2) {
@@ -121,27 +121,27 @@ public class ProyectoPollitos {
                                 String ListadMarcas = MostrarListaMarcas(listamarcas.getMarcas());
                                 String ListadCategorias = MostrarListaCategorias(listacategoria.getCategorias());
                                 String ListadProductos = MostrarListaProductos(listaproductos.getProductos());
-                                String NombreProducto = JOptionPane.showInputDialog("Lista de Marcas: \n" + ListadMarcas + "\n \nLista de Categorias:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos + "\n \nDigite el nombre del producto al que le quieres editar el precio ");
+                                String NombreProducto = JOptionPane.showInputDialog("Lista de Marcas: \n" + ListadMarcas + "\n \nLista de Categorías:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos + "\n \nDigite el nombre del producto al que le quieres editar el precio ");
                                 int posicion = (BuscarNombreProducto(NombreProducto, listaproductos.getProductos()));
                                 if (posicion > listaproductos.getProductos().length) {
-                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  no existe");
+                                    JOptionPane.showMessageDialog(null, "El producto con el nombre "+NombreProducto+"   no existe");
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  existe \n" + listaproductos.getProductos()[posicion].toString());
+                                    JOptionPane.showMessageDialog(null, "El producto con el nombre "+NombreProducto+"  existe \n" + listaproductos.getProductos()[posicion].toString());
                                     antiFall = JOptionPane.showInputDialog(null, "Ingrese el nuevo precio");
                                     if (Numerico(antiFall)) {
                                         int PrecioIngresar = Integer.parseInt(antiFall);
                                         listaproductos.getProductos()[posicion].setPrecio(PrecioIngresar);
-                                        JOptionPane.showMessageDialog(null, "precio cambiado con exito");
+                                        JOptionPane.showMessageDialog(null, "El producto con el precio editado con exito es:\n"+listaproductos.getProductos()[posicion].toString());
                                     } else {
-                                        JOptionPane.showMessageDialog(null, "ERROR, digite valores numericos por favor");
+                                        JOptionPane.showMessageDialog(null, "ERROR, porfavor ingrese un valor numérico");
                                         break;
                                     }
 
-                                    JOptionPane.showMessageDialog(null, "El producto con la mercaderia ingresada  con exito es: \n" + listaproductos.getProductos()[posicion].toString());
+                                    JOptionPane.showMessageDialog(null, "El producto con el precio editado con exito es: \n" + listaproductos.getProductos()[posicion].toString());
                                 }
                                 break;
                             default:
-                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                JOptionPane.showMessageDialog(null, "Opción no valida");
                         }
                     }
                     break;
@@ -149,13 +149,12 @@ public class ProyectoPollitos {
                 case 4:
                     int VImenu = 0;
                     while (VImenu != 2) {
-                        antiFall = JOptionPane.showInputDialog(null, "Menu Ver Inventario \nDigite el número de la opción que desea \n 1. Ver Inventario Completo \n 2. Volver al menu");
+                        antiFall = JOptionPane.showInputDialog(null, "Menú Ver Inventario \nDigite el número de la opción que desea \n 1. Ver Inventario Completo \n 2. Volver al menú");
                         if (Numerico(antiFall)) {
                             VImenu = Integer.parseInt(antiFall);
                         } else {
-                            JOptionPane.showMessageDialog(null, "ERROR, por favor ingrese un valor numerico");
+                            JOptionPane.showMessageDialog(null, "ERROR, por favor ingrese un valor numérico");
                         }
-
                         if (VImenu == 2) {
                             break;
                         }
@@ -164,14 +163,55 @@ public class ProyectoPollitos {
                                 String ListadMarcas = MostrarListaMarcas(listamarcas.getMarcas());
                                 String ListadCategorias = MostrarListaCategorias(listacategoria.getCategorias());
                                 String ListadProductos = MostrarListaProductos(listaproductos.getProductos());
-                                JOptionPane.showMessageDialog(null, "Lista de Marcas: \n" + ListadMarcas + "\nLista de Categorias:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos);
+                                //Menu de FILTRAR INVENTARIO
+                                JOptionPane.showMessageDialog(null, "Lista de Marcas: \n" + ListadMarcas + "\nLista de Categorías:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos);
+                                int FilMenu = 0;
+                                while (FilMenu != 3) {
+                                    antiFall = JOptionPane.showInputDialog(null, "Menu Filtrar Inventario \nDigite el número de la opción que desea \n 1. Filtrar Marcas \n 2. Filtrar Categorías \n 3. Salir");
+                                }
+                                if (Numerico(antiFall)) {
+                                    FilMenu = Integer.parseInt(antiFall);
+                                } else {
+                                    JOptionPane.showMessageDialog(null, "ERROR, por favor ingrese un valor numérico");
+                                }
+                                if (FilMenu == 3) {
+                                    break;
+                                }
+                                switch (FilMenu) {
+                                    case 1:
+                                        ListadMarcas = MostrarListaMarcas(listamarcas.getMarcas());
+                                        String NombreMarcaF = JOptionPane.showInputDialog("Lista de Marcas: \n" + ListadMarcas +"\n \nDigite el nombre de la marca que quiere filtrar ");
+                                        int posicionMarca=(BuscarNombreMarca(NombreMarcaF, listamarcas.getMarcas()));
+                                        if(posicionMarca>listamarcas.getMarcas().length){
+                                            JOptionPane.showMessageDialog(null, "La marca con el nombre "+NombreMarcaF+" no existe");
+                                        }else{
+                                            JOptionPane.showMessageDialog(null, "La marca con el nombre "+NombreMarcaF+" si existe: \n"+listamarcas.getMarcas().toString());
+                                            ListadProductos =FiltrarPorMarca(listaproductos.getProductos(), NombreMarcaF);
+                                            JOptionPane.showMessageDialog(null, "Lista de Productos:\n" + ListadProductos);
+                                        }
+                                        break;
+                                    case 2:
+                                        ListadCategorias = MostrarListaCategorias(listacategoria.getCategorias());
+                                        String NombreCategoriasF = JOptionPane.showInputDialog("Lista de Categorias: \n" + ListadCategorias +"\n \nDigite el nombre de la categoria que quiere filtrar ");
+                                        int posicionCategoria=(BuscarNombreCategoria(NombreCategoriasF,listacategoria.getCategorias()));
+                                        if(posicionCategoria>listamarcas.getMarcas().length){
+                                            JOptionPane.showMessageDialog(null, "La categoria con el nombre "+NombreCategoriasF+" no existe");
+                                        }else{
+                                            JOptionPane.showMessageDialog(null, "La categoria con el nombre "+NombreCategoriasF+" si existe: \n"+listamarcas.getMarcas().toString());
+                                            ListadProductos =FiltrarPorCategoria(listaproductos.getProductos(), NombreCategoriasF);
+                                            JOptionPane.showMessageDialog(null, "Lista de Productos:\n" + ListadProductos);
+                                        }
+                                        break;
+                                    default:
+                                        JOptionPane.showMessageDialog(null, "Opción no valida");
+                                }
                                 break;
                             default:
-                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                JOptionPane.showMessageDialog(null, "Opción no valida");
                         }
                     }
                 default:
-                    JOptionPane.showMessageDialog(null, "Opcion no valida");
+                    JOptionPane.showMessageDialog(null, "Opción no valida");
             }
         }
     }
@@ -186,12 +226,12 @@ public class ProyectoPollitos {
                 if ("0".equals(opc)) {
                     break;
                 }
-                antiFall = JOptionPane.showInputDialog(null, "Digite el id de la marca que quiere registrar ");
+                antiFall = JOptionPane.showInputDialog(null, "Digite el codigo/id de la marca que quiere registrar ");
                 if (Numerico(antiFall)) {
                     Entrada = Integer.parseInt(antiFall);
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "ERROR\nEl id debe ser un valor numerico");
+                    JOptionPane.showMessageDialog(null, "ERROR\nEl codigo/id debe ser un valor numérico");
                     break;
                 }
                 String marcA = JOptionPane.showInputDialog(null, "Digite el nombre de la marca que quiere registrar");
@@ -217,20 +257,20 @@ public class ProyectoPollitos {
         for (int i = 0; i < categ.length; i++) {
             if (categ[i] == null) {
                 categ[i] = new Categorias();
-                String opc = JOptionPane.showInputDialog(null, "Está por registar una categoria.\nDigite 0 para cancelar o\nDigite cualquier otra tecla para continuar ");
+                String opc = JOptionPane.showInputDialog(null, "Está por registar una categoría.\nDigite 0 para cancelar o\nDigite cualquier otra tecla para continuar ");
                 if ("0".equals(opc)) {
                     break;
                 }
-                antiFall = JOptionPane.showInputDialog(null, "Digite el id de la categoria que quiere registrar ");
+                antiFall = JOptionPane.showInputDialog(null, "Digite el codigo/id de la categoría que quiere registrar ");
                 if (Numerico(antiFall)) {
 
                     Entrada = Integer.parseInt(antiFall);
                 } else {
-                    JOptionPane.showMessageDialog(null, "ERROR \nEl id debe ser un valor numerico");
+                    JOptionPane.showMessageDialog(null, "ERROR \nEl codigo/id debe ser un valor numérico");
                     break;
                 }
 
-                String catego = JOptionPane.showInputDialog(null, "Digite el nombre de la categoria que quiere registrar");
+                String catego = JOptionPane.showInputDialog(null, "Digite el nombre de la categoría que quiere registrar");
                 String confirm = JOptionPane.showInputDialog(null, "Desea guardar la categoria?\nPulse cualquier tecla para guardar o\nDigite 0 para descartar ");
                 if ("0".equals(confirm)) {
                     break;
@@ -300,7 +340,7 @@ public class ProyectoPollitos {
                         ListadCategorias = ListadCategorias + "  Id:  " + categ[mc].GETidCategoria() + "  Nombre:  " + categ[mc].GETcategoria() + "\n";
                     }
                 }
-                Categoria = JOptionPane.showInputDialog(null, "Lista Categorias\n"+ListadCategorias+"Digite el nombre de la categoria del producto ");
+                Categoria = JOptionPane.showInputDialog(null, "Lista Categorias\n" + ListadCategorias + "Digite el nombre de la categoria del producto ");
                 boolean verificaC = false;
                 for (int c = 0; c < categ.length; c++) {
                     if (categ[c] != null && categ[c].GETcategoria() != null) {
@@ -353,6 +393,32 @@ public class ProyectoPollitos {
         return posicion;
     }
 
+    public static int BuscarNombreMarca(String NombreMarca, Marcas marc[]) {
+        int posicion = marc.length + 1;
+        for (int i = 0; i < marc.length; i++) {
+            if (marc[i] != null && marc[i].GETMarca() != null) {
+                if (marc[i].GETMarca().equals(NombreMarca)) {
+                    posicion = i;
+                    break;
+                }
+            }
+        }
+        return posicion;
+    }
+
+    public static int BuscarNombreCategoria(String NombreCategoria, Categorias categ[]) {
+        int posicion = categ.length + 1;
+        for (int i = 0; i < categ.length; i++) {
+            if (categ[i] != null && categ[i].GETcategoria() != null) {
+                if (categ[i].GETcategoria().equals(NombreCategoria)) {
+                    posicion = i;
+                    break;
+                }
+            }
+        }
+        return posicion;
+    }
+
     public static String MostrarListaMarcas(Marcas marc[]) {
         String ListadMarcas = "";
         for (int i = 0; i < marc.length; i++) {
@@ -377,12 +443,36 @@ public class ProyectoPollitos {
         String ListadProductos = "";
         for (int i = 0; i < prod.length; i++) {
             if (prod[i] != null) {
-                ListadProductos = ListadProductos + "  Id:  " + prod[i].getCodigo() + "  Nombre:  " + prod[i].getNombre() + "  Precio:  " + prod[i].getPrecio() + "  Cantidad:  " + prod[i].getCantidad() + "  Marca:  " + prod[i].getMarca() + "  Categoria:  " + prod[i].getCategoria() + "\n";
+                ListadProductos = ListadProductos + "  Id:  " + prod[i].getCodigo() + "  Nombre:  " + prod[i].getNombre() + "  Precio:  " + prod[i].getPrecio() + "  Cantidad:  " + prod[i].getCantidad() + "  Marca:  " + prod[i].getMarca() + "  Categoría:  " + prod[i].getCategoria() + "\n";
             }
         }
         return ListadProductos;
     }
 
+    public static String FiltrarPorMarca(Producto prod[],String NombreMarcaF){
+        String ListaFiltradaM= "";
+        for (int i = 0; i < prod.length; i++) {
+            if (prod[i] != null) {
+                if(prod[i].getMarca().equals(NombreMarcaF)){
+                    ListaFiltradaM = ListaFiltradaM + "  Id:  " + prod[i].getCodigo() + "  Nombre:  " + prod[i].getNombre() + "  Precio:  " + prod[i].getPrecio() + "  Cantidad:  " + prod[i].getCantidad() + "  Marca:  " + prod[i].getMarca() + "  Categoría:  " + prod[i].getCategoria() + "\n";
+                }
+            }
+            
+        }
+        return ListaFiltradaM;
+    }
+    public static String FiltrarPorCategoria(Producto prod[],String NombreCategoriaF){
+        String ListaFiltradaC= "";
+        for (int i = 0; i < prod.length; i++) {
+            if (prod[i] != null) {
+                if(prod[i].getCategoria().equals(NombreCategoriaF)){
+                    ListaFiltradaC = ListaFiltradaC + "  Id:  " + prod[i].getCodigo() + "  Nombre:  " + prod[i].getNombre() + "  Precio:  " + prod[i].getPrecio() + "  Cantidad:  " + prod[i].getCantidad() + "  Marca:  " + prod[i].getMarca() + "  Categoría:  " + prod[i].getCategoria() + "\n";
+                }
+            }
+            
+        }
+        return ListaFiltradaC;
+    }
     //evitar caidas por String en int
     public static boolean Numerico(String antiFall) {
 
