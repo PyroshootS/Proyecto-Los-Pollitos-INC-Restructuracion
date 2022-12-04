@@ -118,12 +118,15 @@ public class ProyectoPollitos {
                         }
                         switch (EPmenu) {
                             case 1:
-                                String NombreProducto = JOptionPane.showInputDialog("Digite el nombre del producto al que le quieres editar el precio ");
+                                String ListadMarcas = MostrarListaMarcas(listamarcas.getMarcas());
+                                String ListadCategorias = MostrarListaCategorias(listacategoria.getCategorias());
+                                String ListadProductos = MostrarListaProductos(listaproductos.getProductos());
+                                String NombreProducto = JOptionPane.showInputDialog("Lista de Marcas: \n" + ListadMarcas + "\n \nLista de Categorias:\n" + ListadCategorias + "\n \nLista de Productos:\n" + ListadProductos + "\n \nDigite el nombre del producto al que le quieres editar el precio ");
                                 int posicion = (BuscarNombreProducto(NombreProducto, listaproductos.getProductos()));
                                 if (posicion > listaproductos.getProductos().length) {
                                     JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  no existe");
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  existe  " + listaproductos.getProductos()[posicion].toString());
+                                    JOptionPane.showMessageDialog(null, "El producto con el nombre introducido  existe \n" + listaproductos.getProductos()[posicion].toString());
                                     antiFall = JOptionPane.showInputDialog(null, "Ingrese el nuevo precio");
                                     if (Numerico(antiFall)) {
                                         int PrecioIngresar = Integer.parseInt(antiFall);
