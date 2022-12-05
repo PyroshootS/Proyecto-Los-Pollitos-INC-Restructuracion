@@ -1,3 +1,4 @@
+
 package com.mycompany.proyectopollitos;
 
 public class ListaCategorias {

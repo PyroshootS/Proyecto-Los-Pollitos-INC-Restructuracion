@@ -9,7 +9,7 @@ public class Marcas {
 
     }
 
-    public Marcas(int idMarcas, String Marca) {
+    public Marcas(int idMarca, String Marca) {
         this.idMarca = idMarca;
         this.Marca = Marca;
     }
