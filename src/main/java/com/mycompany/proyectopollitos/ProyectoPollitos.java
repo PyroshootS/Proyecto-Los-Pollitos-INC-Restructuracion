@@ -208,7 +208,7 @@ public class ProyectoPollitos {
                                                 JOptionPane.showMessageDialog(null, "La categoria con el nombre " + NombreCategoriasF + " no existe");
                                             } else {
 
-                                                JOptionPane.showMessageDialog(null, "La categoria con el nombre " + NombreCategoriasF + " si existe: \n" + listamarcas.getMarcas().toString());
+                                                JOptionPane.showMessageDialog(null, "La categoria con el nombre " + NombreCategoriasF + " si existe: \n" + listacategoria.getCategorias().toString());
                                                 ListadProductos = FiltrarPorCategoria(listaproductos.getProductos(), NombreCategoriasF);
                                                 JOptionPane.showMessageDialog(null, "Lista de Productos:\n" + ListadProductos);
                                             }
