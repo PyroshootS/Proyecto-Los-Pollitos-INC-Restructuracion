@@ -195,7 +195,7 @@ public class ProyectoPollitos {
                                             if (posicionMarca > listamarcas.getMarcas().length) {
                                                 JOptionPane.showMessageDialog(null, "La marca con el nombre " + NombreMarcaF + " no existe");
                                             } else {
-                                                JOptionPane.showMessageDialog(null, "La marca con el nombre " + NombreMarcaF + " si existe: \n" + listamarcas.getMarcas().toString());
+                                                JOptionPane.showMessageDialog(null, "La marca con el nombre " + NombreMarcaF + " si existe: \n" + listamarcas.getMarcas()[posicionMarca].toString());
                                                 ListadProductos = FiltrarPorMarca(listaproductos.getProductos(), NombreMarcaF);
                                                 JOptionPane.showMessageDialog(null, "Lista de Productos:\n" + ListadProductos);
                                             }
@@ -208,7 +208,7 @@ public class ProyectoPollitos {
                                                 JOptionPane.showMessageDialog(null, "La categoria con el nombre " + NombreCategoriasF + " no existe");
                                             } else {
 
-                                                JOptionPane.showMessageDialog(null, "La categoria con el nombre " + NombreCategoriasF + " si existe: \n" + listacategoria.getCategorias().toString());
+                                                JOptionPane.showMessageDialog(null, "La categoria con el nombre " + NombreCategoriasF + " si existe: \n" + listacategoria.getCategorias()[posicionCategoria].toString());
                                                 ListadProductos = FiltrarPorCategoria(listaproductos.getProductos(), NombreCategoriasF);
                                                 JOptionPane.showMessageDialog(null, "Lista de Productos:\n" + ListadProductos);
                                             }
